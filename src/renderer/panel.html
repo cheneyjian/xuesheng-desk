@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src file:;">
+<title>学升 · 录音与笔记</title>
+<link rel="stylesheet" href="panel.css">
+</head>
+<body>
+<main>
+  <section class="card site-card">
+    <label for="siteSelect">切换网站</label>
+    <select id="siteSelect" aria-label="切换固定网站" disabled>
+      <option value="">正在读取固定网站…</option>
+    </select>
+  </section>
+
+  <section class="card">
+    <label for="courseSelect">课程</label>
+    <div class="row compact">
+      <select id="courseSelect" aria-label="选择课程"><option value="">选择或新建课程</option></select>
+      <button id="courseCreate" type="button">新建</button>
+    </div>
+    <label for="lessonSelect" class="sub-label">课时</label>
+    <div class="row compact">
+      <select id="lessonSelect" aria-label="选择课时" disabled><option value="">先选择课程</option></select>
+      <button id="lessonCreate" type="button" disabled>新建</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <label for="title">课程名称</label>
+    <input id="title" type="text" placeholder="例如：第 3 讲 家庭系统" maxlength="120">
+    <div class="row">
+      <button id="start" type="button" class="primary">开始内录</button>
+      <button id="stop" type="button" disabled>停止并保存</button>
+    </div>
+    <div class="status-row">
+      <span id="timer" class="timer">00:00</span>
+      <div class="meter" aria-label="音量"><div id="meterFill"></div></div>
+    </div>
+    <p id="status" class="status" role="status">先在左侧网页里登录并打开课程，再点“开始内录”。</p>
+  </section>
+
+  <section class="card">
+    <label for="noteInput">时间戳笔记</label>
+    <div class="row">
+      <input id="noteInput" type="text" placeholder="录音中按回车记下当前时刻" disabled>
+      <button id="noteAdd" type="button" disabled>记下</button>
+    </div>
+    <ul id="notes" class="notes"></ul>
+  </section>
+
+  <section class="card">
+    <h2>我的录音</h2>
+    <ul id="list" class="list"></ul>
+  </section>
+  <dialog id="transcriptDialog" class="transcript-dialog">
+    <form method="dialog" class="dialog-head">
+      <h2>编辑转写稿</h2>
+      <button value="cancel" aria-label="关闭">关闭</button>
+    </form>
+    <div id="transcriptSegments" class="transcript-segments"></div>
+    <div class="dialog-actions">
+      <button id="transcriptSave" type="button" class="primary">保存转写稿</button>
+    </div>
+  </dialog>
+  <dialog id="nameDialog" class="name-dialog">
+    <form method="dialog" class="dialog-head">
+      <h2 id="nameDialogTitle">新建</h2>
+      <button value="cancel" aria-label="关闭">关闭</button>
+    </form>
+    <label for="nameDialogInput">名称</label>
+    <input id="nameDialogInput" type="text" maxlength="120" required>
+    <div class="dialog-actions">
+      <button id="nameDialogCancel" type="button">取消</button>
+      <button id="nameDialogConfirm" type="button" class="primary">创建</button>
+    </div>
+  </dialog>
+</main>
+<script src="panel.js"></script>
+</body>
+</html>

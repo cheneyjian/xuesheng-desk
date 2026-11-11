@@ -1,0 +1,17 @@
+appId: com.example.xuesheng-desk
+productName: XueshengDesk
+directories:
+  output: dist
+files:
+  - src/**/*
+  - package.json
+extraResources:
+  - from: tools
+    to: tools
+mac:
+  category: public.app-category.education
+  target:
+    - dmg
+  hardenedRuntime: true
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist

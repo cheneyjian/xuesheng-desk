@@ -1,0 +1,19 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>网页音频隔离验收</title>
+<h1>网页音频隔离验收</h1>
+<p id="status">准备播放测试音</p>
+<script>
+  const frequency = Number(new URL(location.href).searchParams.get('frequency')) || 440;
+  window.tone = new AudioContext({ sampleRate: 48000 });
+  const oscillator = tone.createOscillator();
+  const gain = tone.createGain();
+  oscillator.frequency.value = frequency;
+  gain.gain.value = 0.025;
+  oscillator.connect(gain).connect(tone.destination);
+  oscillator.start();
+  window.ready = tone.resume().then(() => {
+    document.getElementById('status').textContent = `${frequency} Hz · ${tone.state}`;
+    return tone.state;
+  });
+</script>
