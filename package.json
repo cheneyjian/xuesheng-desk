@@ -1,6 +1,7 @@
 {
   "name": "xuesheng-desk",
   "version": "0.1.0",
+  "license": "MIT",
   "description": "学升桌面版：课程网页音轨内录 + 笔记 + 导出 + 本地转写",
   "main": "src/main/main.js",
   "private": true,

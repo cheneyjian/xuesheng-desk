@@ -2,6 +2,8 @@
 
 将固定课程网站放进桌面工作区，并在同一窗口管理课程、课时、应用内录音、时间戳笔记、转写稿和导出。
 
+本项目以 MIT 许可证开源，详见 [LICENSE](LICENSE)。这是由社区独立开发的桌面工具，与学升网站及其运营方无隶属或官方合作关系。项目不包含学升网站代码；使用网站账号、录制或导出课程内容前，请遵守网站条款及适用法律。
+
 单窗口左右分栏：
 
 - **课程网页**：加载课程网站。它没有通往本地功能的通用接口，且只能停留在白名单域名里。
@@ -82,6 +84,11 @@ pip install funasr modelscope torch torchaudio
 
 - [@audio/encode-mp3](https://github.com/audiojs/encode)：MIT，负责 WASM 流式 MP3 编码。
 - Electron `session.setDisplayMediaRequestHandler`：选定当前 `WebContents` 的网页帧音轨（Tab audio）。
+- Electron、electron-builder 和直接 npm 依赖均采用宽松的开源许可证；完整依赖及许可证信息见 `package-lock.json` 和各依赖包自带的许可证文件。
+
+## 许可证
+
+本项目代码按 [MIT 许可证](LICENSE)发布。第三方依赖、商标及学升网站内容各自遵循其权利人适用的条款，不因本项目开源而改变。
 
 ## 还没做的
 
